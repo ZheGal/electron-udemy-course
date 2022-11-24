@@ -1,0 +1,14 @@
+{
+  "name": "electron-udemy-course",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ZheGal/electron-udemy-course.git",
+  "author": "Evgeniy Galkovskiy <zhegal@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:first": "npx electron 01-simple-app/main.js"
+  },
+  "devDependencies": {
+    "electron": "^22.0.0-beta.7"
+  }
+}
