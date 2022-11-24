@@ -1,0 +1,15 @@
+{
+  "name": "electron-simple-app",
+  "version": "1.0.0",
+  "description": "Simple App maked via Electron JS",
+  "main": "main.js",
+  "author": "Evgeniy Galkovskiy",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "npx electron main.js"
+  },
+  "devDependencies": {
+    "electron": "^22.0.0-beta.7"
+  }
+}
