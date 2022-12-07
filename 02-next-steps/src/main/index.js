@@ -1,11 +1,18 @@
 import { app } from 'electron';
 
-app.on('before-quit', () => console.log('before quit'));
-app.on('will-quit', () => console.log('will quit'));
-app.on('quit', () => console.log('quit'));
+const lock = app.releaseSingleInstanceLock();
+
+if (!lock) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    app.focus();
+    if (win) {
+      win.focus();
+    }
+  });
+}
 
 app.whenReady().then(() => {
-  setTimeout(() => {
-    app.quit()
-  }, 2000);
+  app.showAboutPanel();
 });
