@@ -1,18 +1,26 @@
-import { app } from 'electron';
+import { app, screen, BrowserWindow } from 'electron';
 
-const lock = app.releaseSingleInstanceLock();
-
-if (!lock) {
-  app.quit();
-} else {
-  app.on('second-instance', () => {
-    app.focus();
-    if (win) {
-      win.focus();
+app.on('ready', () => {
+  const { width: maxWidth, height: maxHeight } = screen.getPrimaryDisplay().workAreaSize;
+  let window = new BrowserWindow({
+    width: 800,
+    height: 600,
+    minWidth: 400,
+    minHeight: 400,
+    maxWidth,
+    maxHeight,
+    show: false,
+    titleBarStyle: 'hidden',
+    backgroundColor: '#2980b9',
+    webPreferences: {
+      nodeIntegration: true
     }
   });
-}
 
-app.whenReady().then(() => {
-  app.showAboutPanel();
+  window.on('ready-to-show', () => {
+    window.show();
+  });
+
+  window.loadFile('renderer/index.html');
+  window.webContents.openDevTools();
 });

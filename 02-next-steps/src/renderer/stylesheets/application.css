@@ -7,27 +7,33 @@ html, body {
 
 body {
   font-family: -apple-system, "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #2980b9;
 }
 
 .message {
-  position: absolute;
   width: 500px;
   height: 250px;
   top: 50%;
   left: 50%;
-  color: #777;
+  color: #fff;
   font-weight: 200;
   text-align: center;
-  margin-top: -125px;
-  margin-left: -250px;
 }
 
 .message h1 {
   font-size: 50px;
   font-weight: 100;
-  color: #333;
 }
 
 .message div {
   margin-bottom: 10px;
+}
+
+.titleBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  -webkit-app-region: drag;
 }
